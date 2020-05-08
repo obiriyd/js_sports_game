@@ -4,6 +4,7 @@ const shotsTeamTwo = document.querySelector('#teamtwo-numshots');
 const goalsTeamOne = document.querySelector('#teamone-numgoals');
 const goalsTeamTwo = document.querySelector('#teamtwo-numgoals');
 const resetCount = document.querySelector('#num-resets');
+let audioPlayer = new Audio('assets/audio/laser_gun.mp3');
 let gameWinner;
 let gamePlayed = false;
 
@@ -21,6 +22,8 @@ shootButtonTeamOne.addEventListener("click", function() {
         //Won, Update Goals for Team One
         goalsTeamOne.innerHTML = Number(goalsTeamOne.innerHTML) + 1;
     } 
+    //Play Auio
+    audioPlayer.play();
 })
 
 //Add Event Listener for Team Two
@@ -32,6 +35,8 @@ shootButtonTeamTwo.addEventListener("click", function() {
         //Won, Update Goals for Team One
         goalsTeamTwo.innerHTML = Number(goalsTeamTwo.innerHTML) + 1;
     } 
+    //Play Auio
+    audioPlayer.play();
 })
 
 //Add Event Listener for Reset Button
@@ -57,4 +62,7 @@ resetButton.addEventListener("click", function() {
     if (gamePlayed) {
         alert('Game Over! \nAnd the winner is: ' + gameWinner);
     }
+    //Reset Variables
+    gameWinner = '';
+    gamePlayed = false;
 })
